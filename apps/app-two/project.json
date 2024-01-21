@@ -1,0 +1,75 @@
+{
+	"name": "app-two",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/app-two/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/vite:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"outputPath": "dist/apps/app-two"
+			},
+			"configurations": {
+				"development": {
+					"mode": "development"
+				},
+				"production": {
+					"mode": "production"
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nx/vite:dev-server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "app-two:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "app-two:build:development",
+					"hmr": true
+				},
+				"production": {
+					"buildTarget": "app-two:build:production",
+					"hmr": false
+				}
+			}
+		},
+		"preview": {
+			"executor": "@nx/vite:preview-server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "app-two:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "app-two:build:development"
+				},
+				"production": {
+					"buildTarget": "app-two:build:production"
+				}
+			}
+		},
+		"test": {
+			"executor": "@nx/vite:test",
+			"outputs": ["{options.reportsDirectory}"],
+			"options": {
+				"reportsDirectory": "../../coverage/apps/app-two"
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"]
+		},
+
+		"typecheck": {
+			"command": "tsc --project apps/app-two/tsconfig.app.json"
+		},
+		"formatCode": {
+			"command": "prettier --write  \"apps/app-two/**/*.+(js|json|ts|tsx)\""
+		}
+	},
+	"tags": []
+}
