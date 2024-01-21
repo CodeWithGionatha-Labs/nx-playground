@@ -1,14 +1,15 @@
 {
-  "name": "@nx-playground/source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
-  "private": true,
-  "dependencies": {},
-  "devDependencies": {
-    "@nx/js": "17.2.8",
-    "@nx/workspace": "17.2.8",
-    "nx": "17.2.8"
-  },
-  "packageManager": "yarn@1.22.19"
+	"name": "@nx-playground/source",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {},
+	"private": true,
+	"dependencies": {},
+	"devDependencies": {
+		"@nx/js": "17.2.8",
+		"@nx/workspace": "17.2.8",
+		"nx": "17.2.8",
+		"prettier": "^3.2.4"
+	},
+	"packageManager": "yarn@1.22.19"
 }

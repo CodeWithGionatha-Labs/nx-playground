@@ -1,0 +1,20 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": ".",
+		"rootDir": ".",
+		"declaration": false,
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"target": "ES2015",
+		"skipDefaultLibCheck": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"importHelpers": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"strict": true
+	},
+	"exclude": ["node_modules"]
+}
