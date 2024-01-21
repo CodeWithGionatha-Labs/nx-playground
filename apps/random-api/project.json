@@ -1,0 +1,52 @@
+{
+	"name": "random-api",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/random-api/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"target": "node",
+				"compiler": "tsc",
+				"outputPath": "dist/apps/random-api",
+				"main": "apps/random-api/src/main.ts",
+				"tsConfig": "apps/random-api/tsconfig.app.json",
+				"assets": ["apps/random-api/src/assets"],
+				"webpackConfig": "apps/random-api/webpack.config.js"
+			},
+			"configurations": {
+				"development": {},
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "random-api:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "random-api:build:development"
+				},
+				"production": {
+					"buildTarget": "random-api:build:production"
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"]
+		},
+		"typecheck": {
+			"command": "tsc --project apps/random-api/tsconfig.app.json"
+		},
+		"formatCode": {
+			"command": "prettier --write  \"apps/random-api/**/*.+(js|json|ts|tsx)\""
+		}
+	},
+	"tags": []
+}
