@@ -1,11 +1,17 @@
-import express from 'express'
+import { RandomColorApiResponse, randomColorApiRoute } from '@nx-playground/random-api-interface'
+import express, { Response } from 'express'
 import * as path from 'path'
 
 const app = express()
 
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*')
+	next()
+})
+
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 
-app.get('/api/random', (req, res) => {
+app.get(randomColorApiRoute, (req, res: Response<RandomColorApiResponse>) => {
 	const prob = Math.random()
 
 	// eslint-disable-next-line no-nested-ternary
