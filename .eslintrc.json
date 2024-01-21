@@ -1,0 +1,61 @@
+{
+	"root": true,
+	"ignorePatterns": ["**/*"],
+	"plugins": ["@nx"],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"extends": [
+				"airbnb",
+				"airbnb/hooks",
+				"plugin:import/typescript",
+				"plugin:react/recommended",
+				"plugin:react-hooks/recommended",
+				"prettier"
+			],
+			"rules": {
+				"@nx/enforce-module-boundaries": [
+					"error",
+					{
+						"enforceBuildableLibDependency": true,
+						"allow": [],
+						"depConstraints": [
+							{
+								"sourceTag": "*",
+								"onlyDependOnLibsWithTags": ["*"]
+							}
+						]
+					}
+				],
+				// to avoid import React from 'react'
+				"react/react-in-jsx-scope": "off",
+				// to allow jsx syntax in tsx files
+				"react/jsx-filename-extension": [
+					"error",
+					{
+						"extensions": [".tsx"]
+					}
+				],
+				// error if not using hooks correctly
+				"react-hooks/rules-of-hooks": "error",
+				// to allow only named exports with no default export
+				"import/no-named-as-default": "off",
+				"import/prefer-default-export": "off",
+				// to avoid import errors with nx
+				"import/no-unresolved": "off",
+				"import/no-extraneous": "off",
+				"import/extensions": "off"
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": ["plugin:@nx/typescript"],
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"extends": ["plugin:@nx/javascript"],
+			"rules": {}
+		}
+	]
+}
