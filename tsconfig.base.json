@@ -1,24 +1,37 @@
 {
-	"compileOnSave": false,
-	"compilerOptions": {
-		"baseUrl": ".",
-		"rootDir": ".",
-		"declaration": false,
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"target": "ES2015",
-		"skipDefaultLibCheck": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"lib": ["ESNext", "DOM", "DOM.Iterable"],
-		"importHelpers": true,
-		"allowSyntheticDefaultImports": true,
-		"resolveJsonModule": true,
-		"strict": true,
-		"paths": {
-			"@nx-playground/random-api-interface": ["libs/api-interfaces/random-api/src/index.ts"],
-			"@nx-playground/ui-timer": ["libs/ui/components/timer/src/index.ts"]
-		}
-	},
-	"exclude": ["node_modules"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "declaration": false,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ES2015",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "paths": {
+      "@nx-playground/random-api-interface": [
+        "libs/api-interfaces/random-api/src/index.ts"
+      ],
+      "@nx-playground/ui-timer": [
+        "libs/ui/components/timer/src/index.ts"
+      ],
+      "@nx-playground/use-random-color-hook": [
+        "libs/ui/hooks/use-random-color/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
