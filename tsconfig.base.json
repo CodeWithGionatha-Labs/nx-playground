@@ -14,7 +14,10 @@
 		"importHelpers": true,
 		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true,
-		"strict": true
+		"strict": true,
+		"paths": {
+			"@nx-playground/ui-timer": ["libs/ui/components/timer/src/index.ts"]
+		}
 	},
 	"exclude": ["node_modules"]
 }
