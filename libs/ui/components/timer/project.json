@@ -1,15 +1,19 @@
 {
-  "name": "ui-timer",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui/components/timer/src",
-  "projectType": "library",
-  "tags": [],
-  "targets": {
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ]
-    }
-  }
+	"name": "ui-timer",
+	"$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/ui/components/timer/src",
+	"projectType": "library",
+	"tags": [],
+	"targets": {
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"]
+		},
+		"typecheck": {
+			"command": "tsc --project libs/ui/components/timer/tsconfig.lib.json"
+		},
+		"formatCode": {
+			"command": "prettier --write  \"libs/ui/components/timer/**/*.+(js|json|ts|tsx)\""
+		}
+	}
 }
