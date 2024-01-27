@@ -21,7 +21,7 @@ export function Timer({ color }: { color: string }) {
 
 			return () => clearInterval(interval)
 		}, 1000)
-	})
+	}, [])
 
 	return (
 		<div>
